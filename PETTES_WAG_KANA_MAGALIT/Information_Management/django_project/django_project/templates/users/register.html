@@ -8,6 +8,7 @@
     <h2>Register</h2>
     <form method="post" style="display: flex; flex-direction: column;">
         {% csrf_token %}
+
         {{ form.username.label_tag }} <br>
         {{ form.username }} <br><br>
 
@@ -20,10 +21,22 @@
         {{ form.password2.label_tag }} <br>
         {{ form.password2 }} <br><br>
 
+        <!-- Adding User Type dropdown -->
+        <label for="{{ form.user_type.id_for_label }}">User Type:</label>
+        <select name="{{ form.user_type.name }}" id="{{ form.user_type.id_for_label }}">
+            <option value="farmer">Farmer</option>
+            <option value="customer">Customer</option>
+        </select>
+        <br><br>
+
         <button type="submit">Register</button>
         <br><button type="button" onclick="goBack()">Back</button>
-        <p>Already has an account? <a href="{% url 'login' %}">Login</a></p>
-        
+        <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+
+        <!-- Display user_type -->
+        {% if user.profile %}
+            <p>User Type: {{ user.profile.user_type }}</p>
+        {% endif %}
     </form>
 </div>
 
