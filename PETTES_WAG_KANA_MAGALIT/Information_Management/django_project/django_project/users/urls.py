@@ -29,6 +29,7 @@ urlpatterns = [
     path('checkout_data/', checkout_data, name='checkout_data'),
     path('about/', about, name='about'),
     path('contact/', contact, name='contact'),
+    path('creates/', creates, name='creates'),
 
 
 

@@ -74,6 +74,8 @@ def about(request):
     return render(request, 'users/about.html')
 def contact(request):
     return render(request, 'users/contact.html')
+def creates(request):
+    return render(request, 'users/creates.html')
 
 def sign_up(request):
     if request.method == "POST":
